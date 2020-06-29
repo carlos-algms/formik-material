@@ -1,0 +1,28 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import Form from './Form';
+import SubmitButton from '../SubmitButton';
+import useFormSubmittedValues from '../useFormSubmittedValues';
+import TextField from '../TextField';
+
+export const initialValues = { name: 'initial name' };
+
+<Meta title="Form Component" component={Form} />
+
+Basic form implementation
+
+<Preview>
+  <Story name="basic">
+    {() => {
+      const handle = useFormSubmittedValues(action('submited'));
+      return (
+        <Form onSubmitForm={handle} initialValues={initialValues}>
+          <TextField name="name" label="Name: " />
+          <p>
+            <SubmitButton>Submit</SubmitButton>
+          </p>
+        </Form>
+      );
+    }}
+  </Story>
+</Preview>
