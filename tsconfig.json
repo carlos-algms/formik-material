@@ -26,7 +26,8 @@
 		"removeComments": false,
 		"typeRoots": ["node_modules/@types"],
 		"lib": ["esnext", "dom"],
-		"jsx": "react"
+		"jsx": "react",
+		"forceConsistentCasingInFileNames": true
 	},
 	"exclude": ["node_modules", "dist", ".vscode", ".idea", ".git"]
 }
