@@ -1,0 +1,25 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import Form from '../Form';
+import SubmitButton from '../SubmitButton';
+import useFormSubmittedValues from '../useFormSubmittedValues';
+import CpfField from './CpfField';
+import FormDemo from '../shared/FormDemo';
+
+export const initialValues = { cpf: '123.456.789.00' };
+
+<Meta title="CPF Field" component={CpfField} />
+
+Brazilian CPF field with mask helper
+
+<Preview>
+  <Story name="basic">
+    <FormDemo onSubmit={action('submitted')} initialValues={initialValues}>
+      <CpfField name="cpf" label="My CPF:" />
+    </FormDemo>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={CpfField} />
