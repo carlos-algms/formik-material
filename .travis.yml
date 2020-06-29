@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - 12
+
+cache:
+  directories:
+    - 'node_modules'
+
+notifications:
+  email: false
+
+branches:
+  only:
+    - master
+
+install:
+  - yarn --frozen-lockfile
+
+script:
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then make pr_validate; fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then make master; fi'
+
+after_success:
+  - npx codecov
