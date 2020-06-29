@@ -1,1 +1,2 @@
-export { default, FormProps, OnSubmitFormCallback } from './Form';
+export { default } from './Form';
+export type { FormProps, OnSubmitFormCallback } from './Form';
