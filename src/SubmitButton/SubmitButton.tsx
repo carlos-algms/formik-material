@@ -1,18 +1,25 @@
-import Button from '@material-ui/core/Button';
+import Button, { ButtonProps } from '@material-ui/core/Button';
 import { useFormikContext } from 'formik';
 import React, { memo } from 'react';
 import type PropsBase from '../shared/PropsBase';
 
-function SubmitButton({ children, className }: PropsBase) {
-  const { isSubmitting } = useFormikContext();
+const SubmitButton = ({ children, className, ...restProps }: PropsBase & ButtonProps) => {
+  const { isSubmitting, isValidating } = useFormikContext();
 
   return (
     <div className={className}>
-      <Button variant="contained" color="primary" type="submit" disabled={isSubmitting}>
+      <Button
+        {...restProps}
+        variant="contained"
+        color="primary"
+        role="button"
+        type="submit"
+        disabled={isSubmitting && !isValidating}
+      >
         {children}
       </Button>
     </div>
   );
-}
+};
 
 export default memo(SubmitButton);
