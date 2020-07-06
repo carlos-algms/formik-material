@@ -9,7 +9,7 @@ const useClasses = makeStyles({
 
 const ErrorLabel = ({ error }: { error: any }) => {
   const classes = useClasses();
-  return <div className={classes.error}>{error}</div>;
+  return <div className={`error-label ${classes.error}`}>{error}</div>;
 };
 
 export default ErrorLabel;
