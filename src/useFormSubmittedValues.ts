@@ -7,16 +7,16 @@ import useFormSubmit from './useFormSubmit';
  * @param callback Accepts sync and async functions
  */
 function useFormSubmittedValues<T>(callback: (values: T) => any) {
-	const handleSubmit = useFormSubmit<T>(
-		async (values: T, { setSubmitting }: FormikHelpers<T>) => {
-			const result = await callback(values);
-			setSubmitting(false);
-			return result;
-		},
-		[callback],
-	);
+  const handleSubmit = useFormSubmit<T>(
+    async (values: T, { setSubmitting }: FormikHelpers<T>) => {
+      const result = await callback(values);
+      setSubmitting(false);
+      return result;
+    },
+    [callback],
+  );
 
-	return handleSubmit;
+  return handleSubmit;
 }
 
 export default useFormSubmittedValues;

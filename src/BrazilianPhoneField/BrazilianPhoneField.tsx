@@ -13,34 +13,34 @@ const LAND = '(##) ####-####';
 const getFormat = (value = '') => (value[NINTH_DIGIT_POSITION] === NINTH_DIGIT ? MOBILE : LAND);
 
 const BrazilianPhoneField = (props: NumberFormatProps) => {
-	const { name = nanoid() } = props;
-	const { values, setFieldValue } = useFormikContext();
-	const value = get(values, name);
+  const { name = nanoid() } = props;
+  const { values, setFieldValue } = useFormikContext();
+  const value = get(values, name);
 
-	// TODO check if it can be done with useRef instead
-	const [format, setFormat] = useState(getFormat(value));
+  // TODO check if it can be done with useRef instead
+  const [format, setFormat] = useState(getFormat(value));
 
-	const onValueChange = useCallback(
-		({ formattedValue }: NumberFormatValues) => {
-			const newFormat = getFormat(formattedValue);
-			if (newFormat !== format) {
-				setFormat(newFormat);
-			}
-			setFieldValue(name, formattedValue);
-		},
-		[name, format, setFieldValue],
-	);
+  const onValueChange = useCallback(
+    ({ formattedValue }: NumberFormatValues) => {
+      const newFormat = getFormat(formattedValue);
+      if (newFormat !== format) {
+        setFormat(newFormat);
+      }
+      setFieldValue(name, formattedValue);
+    },
+    [name, format, setFieldValue],
+  );
 
-	return (
-		<FormattedField
-			type="tel"
-			mask=""
-			onValueChange={onValueChange}
-			format={format}
-			{...props}
-			name={name}
-		/>
-	);
+  return (
+    <FormattedField
+      type="tel"
+      mask=""
+      onValueChange={onValueChange}
+      format={format}
+      {...props}
+      name={name}
+    />
+  );
 };
 
 export default BrazilianPhoneField;
