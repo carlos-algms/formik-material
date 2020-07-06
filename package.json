@@ -8,8 +8,9 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "cross-env NODE_ENV=production tsc",
-    "test": "cross-env NODE_ENV=test jest",
+    "build": "rimraf dist && cross-env NODE_ENV=production tsc",
+    "test": "rimraf coverage && cross-env NODE_ENV=test jest",
+    "test-with-coverage": "yarn test --collect-coverage",
     "type-check": "cross-env NODE_ENV=production tsc --noEmit"
   },
   "dependencies": {
@@ -24,21 +25,19 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "@babel/preset-typescript": "^7.10.4",
     "@material-ui/core": "^4.10.2",
     "@storybook/addon-actions": "^6.0.0-beta.37",
     "@storybook/addon-docs": "^6.0.0-beta.37",
     "@storybook/addon-links": "^6.0.0-beta.37",
     "@storybook/addons": "^6.0.0-beta.37",
     "@storybook/react": "^6.0.0-beta.37",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.4",
     "@testing-library/react-hooks": "^3.3.0",
     "@types/jest": "^26.0.3",
     "@types/lodash.get": "^4.4.6",
     "@types/material-ui": "^0.21.7",
     "@types/yup": "^0.29.3",
-    "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
     "cross-env": "^7.0.2",
     "formik": "^2.1.4",
@@ -48,6 +47,8 @@
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
     "react-test-renderer": "^16.13.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.1",
     "typescript": "^3.9.5",
     "yup": "^0.29.1"
   }

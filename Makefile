@@ -1,9 +1,9 @@
 pr_validate:
-	yarn test --collect-coverage
-	yarn build
+	yarn test-with-coverage
 	npx codecov
+	yarn build
 
 master:
-	yarn test --collect-coverage
-	yarn build
+	yarn test-with-coverage
 	npx codecov
+	yarn build
