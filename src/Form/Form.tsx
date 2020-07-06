@@ -1,16 +1,16 @@
-import { Formik, FormikHelpers, FormikProps } from 'formik';
+import { Formik, FormikErrors, FormikHelpers, FormikProps } from 'formik';
 import React, { ReactNode } from 'react';
 import type PropsBase from '../shared/PropsBase';
 
 export type OnSubmitFormCallback<T = any, R = any> = {
-  (values: T, formikActions: FormikHelpers<T>): R;
-  (values: T, formikActions: FormikHelpers<T>): Promise<R>;
+  (values: T, formikActions: FormikHelpers<T>): R | Promise<R>;
 };
 
 export type FormProps<T> = PropsBase & {
   initialValues?: T;
   onSubmitForm: OnSubmitFormCallback<T>;
   validationSchema?: any | (() => any);
+  validate?: (values: T) => FormikErrors<T> | Promise<FormikErrors<T>>;
   children?: ReactNode;
 };
 
@@ -22,6 +22,7 @@ export default function Form({
   initialValues,
   onSubmitForm,
   validationSchema,
+  validate,
   className,
 }: FormProps<any>) {
   if (!initialValues) {
@@ -36,6 +37,7 @@ export default function Form({
       initialValues={initialValues}
       onSubmit={onSubmitForm}
       validationSchema={validationSchema}
+      validate={validate}
     >
       {({ handleSubmit }: FormikProps<any>) => {
         return (
