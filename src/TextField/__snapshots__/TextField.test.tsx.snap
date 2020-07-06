@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a MUI field and error label 1`] = `
+<div
+  class="wrapper-class"
+>
+  <div
+    class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+  >
+    <div
+      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiInput-input"
+        name="firstName"
+        type="text"
+        value="John"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render error label 1`] = `
+<div
+  class="wrapper-class"
+>
+  <div
+    class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+  >
+    <div
+      class="MuiInputBase-root MuiInput-root MuiInput-underline Mui-error Mui-error MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
+    >
+      <input
+        aria-invalid="true"
+        class="MuiInputBase-input MuiInput-input"
+        name="firstName"
+        type="text"
+        value="Jane"
+      />
+    </div>
+  </div>
+  <div
+    class="error-label makeStyles-error-1"
+  >
+    Not valid
+  </div>
+</div>
+`;
