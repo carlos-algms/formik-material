@@ -9,7 +9,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "cross-env NODE_ENV=production tsc",
-    "test": "cross-env NODE_ENV=test jest"
+    "test": "cross-env NODE_ENV=test jest",
+    "type-check": "cross-env NODE_ENV=production tsc --noEmit"
   },
   "dependencies": {
     "lodash.get": "^4.4.2",
