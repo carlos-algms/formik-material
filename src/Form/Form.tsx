@@ -2,8 +2,9 @@ import { Formik, FormikHelpers, FormikProps } from 'formik';
 import React, { ReactNode } from 'react';
 import type PropsBase from '../shared/PropsBase';
 
-export type OnSubmitFormCallback<T = any> = {
-  (values: T, formikActions: FormikHelpers<T>): void;
+export type OnSubmitFormCallback<T = any, R = any> = {
+  (values: T, formikActions: FormikHelpers<T>): R;
+  (values: T, formikActions: FormikHelpers<T>): Promise<R>;
 };
 
 export type FormProps<T> = PropsBase & {
