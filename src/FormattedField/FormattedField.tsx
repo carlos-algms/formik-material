@@ -5,12 +5,9 @@ import React from 'react';
 import NumberFormat, { NumberFormatProps } from 'react-number-format';
 import ErrorLabel from '../ErrorLabel';
 
-const FormattedField = ({
-  name = nanoid(),
-  className,
-  fullWidth = true,
-  ...fieldProps
-}: NumberFormatProps & { fullWidth?: boolean }) => {
+type Props = NumberFormatProps & { fullWidth?: boolean };
+
+const FormattedField = ({ name = nanoid(), className, fullWidth = true, ...fieldProps }: Props) => {
   return (
     <Field name={name}>
       {({ field, meta: { error, touched } }: FieldProps) => {
