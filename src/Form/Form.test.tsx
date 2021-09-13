@@ -29,9 +29,9 @@ test('should not call onSubmit on fail validation', async () => {
     name: 'not valid',
   });
 
-  await act(() => {
+  await act(async () => {
     fireEvent.click(submitButton);
-    return delay();
+    await delay();
   });
 
   await delay(() => {
@@ -40,9 +40,9 @@ test('should not call onSubmit on fail validation', async () => {
   });
 
   validateMock.mockReturnValue({});
-  await act(() => {
+  await act(async () => {
     fireEvent.click(submitButton);
-    return delay();
+    await delay();
   });
 
   await delay(() => {

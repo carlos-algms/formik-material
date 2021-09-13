@@ -37,9 +37,9 @@ test('should render error label', async () => {
 
   const submitButton = screen.getByRole('button');
 
-  await act(() => {
+  await act(async () => {
     fireEvent.click(submitButton);
-    return delay();
+    await delay();
   });
 
   const wrapper = container.querySelector('.wrapper-class');
