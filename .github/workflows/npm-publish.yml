@@ -16,7 +16,7 @@ jobs:
 
       - run: yarn --frozen-lockfile
 
-      - run: make build
+      - run: yarn build
 
       - id: publish
         uses: JS-DevTools/npm-publish@v1
