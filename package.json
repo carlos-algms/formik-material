@@ -1,6 +1,6 @@
 {
   "name": "formik-material",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "Material-UI Binds for formik fields",
   "repository": "https://github.com/carlos-algms/formik-material.git",
   "author": "Carlos Gomes <carlos.algms@gmail.com>",
@@ -14,6 +14,9 @@
     "test-with-coverage": "yarn test --collect-coverage",
     "type-check": "cross-env NODE_ENV=production tsc --noEmit"
   },
+  "main": "./index.js",
+  "module": "./index.js",
+  "typings": "./index.d.ts",
   "dependencies": {
     "lodash.get": "^4.4.2",
     "nanoid": "^3.1.25",
@@ -55,5 +58,6 @@
   "keywords": [
     "formik",
     "material-ui"
-  ]
+  ],
+  "sideEffects": false
 }
