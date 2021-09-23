@@ -1,6 +1,6 @@
 {
   "name": "formik-material",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Material-UI Binds for formik fields",
   "repository": "https://github.com/carlos-algms/formik-material.git",
   "author": "Carlos Gomes <carlos.algms@gmail.com>",
