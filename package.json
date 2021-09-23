@@ -1,7 +1,7 @@
 {
   "name": "formik-material",
-  "version": "0.0.0",
-  "description": "Material-UI Binds for formik fields ",
+  "version": "1.0.0-alpha.1",
+  "description": "Material-UI Binds for formik fields",
   "repository": "https://github.com/carlos-algms/formik-material.git",
   "author": "Carlos Gomes <carlos.algms@gmail.com>",
   "license": "MIT",
@@ -9,11 +9,14 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "cross-env NODE_ENV=production build-storybook --output-dir build/storybook",
     "build": "rimraf dist && cross-env NODE_ENV=production tsc",
-    "postbuild": "node ./scripts/clear-package-json.js",
+    "postbuild": "node ./scripts/clear-package-json.js && cp LICENSE README.md ./dist/",
     "test": "rimraf coverage && cross-env NODE_ENV=test jest",
     "test-with-coverage": "yarn test --collect-coverage",
     "type-check": "cross-env NODE_ENV=production tsc --noEmit"
   },
+  "main": "./index.js",
+  "module": "./index.js",
+  "typings": "./index.d.ts",
   "dependencies": {
     "lodash.get": "^4.4.2",
     "nanoid": "^3.1.25",
@@ -51,5 +54,10 @@
     "ts-jest": "^27.0.5",
     "typescript": "^4.4.3",
     "yup": "^0.32.9"
-  }
+  },
+  "keywords": [
+    "formik",
+    "material-ui"
+  ],
+  "sideEffects": false
 }
