@@ -6,6 +6,7 @@ export { default as Form } from './Form';
 export type { FormProps, OnSubmitFormCallback } from './Form';
 export { default as FormattedField } from './FormattedField';
 export { default as NumberField } from './NumberField';
+export { default as PasswordField } from './PasswordField';
 export { default as SubmitButton } from './SubmitButton';
 export { default as TextField } from './TextField';
 export { default as useFormSubmit } from './useFormSubmit';

@@ -8,12 +8,14 @@ import TextField from '../TextField';
 
 export default function PasswordField(props: TextFieldProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const { InputProps = {} } = props;
 
   return (
     <TextField
       {...props}
       type={isVisible ? 'text' : 'password'}
       InputProps={{
+        ...InputProps,
         endAdornment: (
           <InputAdornment position="end">
             <IconButton onClick={() => setIsVisible(!isVisible)}>
