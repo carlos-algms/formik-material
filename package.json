@@ -12,7 +12,8 @@
     "postbuild": "node ./scripts/clear-package-json.js && cp LICENSE README.md ./dist/",
     "test": "rimraf coverage && cross-env NODE_ENV=test jest",
     "test-with-coverage": "yarn test --collect-coverage",
-    "type-check": "cross-env NODE_ENV=production tsc --noEmit"
+    "type-check": "cross-env NODE_ENV=production tsc --noEmit",
+    "postversion": "node ./scripts/clear-package-json.js"
   },
   "main": "./index.js",
   "module": "./index.js",
