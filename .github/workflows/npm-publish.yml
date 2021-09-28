@@ -44,25 +44,14 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2
         with: # You can specify specifying version range for the extra plugins if you prefer.
           extra_plugins: |
-            @semantic-release/changelog
             @semantic-release/git
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Build Changelog
+      - id: publish
         if: steps.semantic_release.outputs.new_release_published == 'true'
-        id: generate_changelog
-        uses: mikepenz/release-changelog-builder-action@v2.4.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Release
-        if: steps.semantic_release.outputs.new_release_published == 'true'
-        uses: actions/create-release@v1
+        uses: JS-DevTools/npm-publish@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          body: ${{steps.generate_changelog.outputs.changelog}}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.NPM_TOKEN }}
+          package: ./dist/package.json
