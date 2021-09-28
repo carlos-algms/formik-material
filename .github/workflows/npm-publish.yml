@@ -1,13 +1,19 @@
 name: NPM Publish
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - main
 
 jobs:
-  publish:
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v1
         with:
@@ -15,14 +21,32 @@ jobs:
 
       - run: yarn --frozen-lockfile
 
+      - run: yarn type-check
+
+      - run: yarn test
+
       - run: yarn build
 
       - id: publish
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: ./dist/package.json
-
-      - if: steps.publish.outputs.type != 'none'
+        name: Publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+          npx semantic-release
+          git push --follow-tags
+
+      - name: Build Changelog
+        id: generate_changelog
+        uses: mikepenz/release-changelog-builder-action@v2.4.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          body: ${{steps.generate_changelog.outputs.changelog}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
