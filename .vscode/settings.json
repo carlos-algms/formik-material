@@ -13,6 +13,5 @@
     "watch": false,
     "onSave": "test-src-file",
     "onStartup": false
-  },
-  "jest.jestCommandLine": "yarn test"
+  }
 }

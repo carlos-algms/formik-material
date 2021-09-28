@@ -23,10 +23,9 @@ export default function CheckboxField({
         const isErrorState = Boolean(error && touched);
 
         return (
-          <FormControl error={isErrorState} required>
+          <FormControl error={isErrorState} className={className}>
             <FormControlLabel
               label={label}
-              className={className}
               control={
                 <Checkbox
                   indeterminate={indeterminate}

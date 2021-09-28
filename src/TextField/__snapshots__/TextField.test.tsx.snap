@@ -42,7 +42,7 @@ exports[`should render error label 1`] = `
     </div>
   </div>
   <div
-    class="error-label makeStyles-error-1"
+    class="MuiTypography-root error-label makeStyles-error-1 MuiTypography-body2"
   >
     Not valid
   </div>
