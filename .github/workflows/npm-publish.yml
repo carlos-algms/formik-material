@@ -19,6 +19,18 @@ jobs:
         with:
           node-version: 14
 
+      - name: Get yarn cache directory path
+        id: yarn_cache_dir_path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn_cache_dir_path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - run: yarn --frozen-lockfile
 
       - run: yarn type-check
@@ -27,22 +39,26 @@ jobs:
 
       - run: yarn build
 
-      - id: publish
-        name: Publish
+      - name: Semantic Release
+        id: semantic_release
+        uses: cycjimmy/semantic-release-action@v2
+        with: # You can specify specifying version range for the extra plugins if you prefer.
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          npx semantic-release
-          git push --follow-tags
 
       - name: Build Changelog
+        if: steps.semantic_release.outputs.new_release_published == 'true'
         id: generate_changelog
         uses: mikepenz/release-changelog-builder-action@v2.4.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
+        if: steps.semantic_release.outputs.new_release_published == 'true'
         uses: actions/create-release@v1
         with:
           tag_name: ${{ github.ref }}
