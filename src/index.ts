@@ -1,4 +1,5 @@
 export { default as BrazilianPhoneField } from './BrazilianPhoneField';
+export { default as CheckboxField } from './CheckboxField';
 export { default as CpfField } from './CpfField';
 export { default as CurrencyField } from './CurrencyField';
 export { default as ErrorLabel } from './ErrorLabel';

@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import type PropsBase from '../shared/PropsBase';
 
 export type OnSubmitFormCallback<T = any, R = any> = {
-  (values: T, formikActions: FormikHelpers<T>): R | Promise<R>;
+  (values: T, formikHelpers: FormikHelpers<T>): R | Promise<R>;
 };
 
 export type FormProps<T> = PropsBase & {
