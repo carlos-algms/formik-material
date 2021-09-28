@@ -7,7 +7,12 @@
   "files.eol": "\n",
   "javascript.format.enable": false,
   "npm.packageManager": "yarn",
-  "prettier.packageManager": "yarn",
   "typescript.format.enable": false,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-src-file",
+    "onStartup": false
+  },
+  "jest.jestCommandLine": "yarn test"
 }
