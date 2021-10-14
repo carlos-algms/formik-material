@@ -6,10 +6,11 @@ import useFormSubmit from './useFormSubmit';
  * Sets 'submitting' to false after await for the callback result;
  * @param callback Accepts sync and async functions
  */
-function useFormSubmittedValues<T>(callback: (values: T) => any) {
+function useFormSubmittedValues<T>(callback: (values: T, formikHelpers: FormikHelpers<T>) => any) {
   const handleSubmit = useFormSubmit<T>(
-    async (values: T, { setSubmitting }: FormikHelpers<T>) => {
-      const result = await callback(values);
+    async (values, formikHelpers) => {
+      const { setSubmitting } = formikHelpers;
+      const result = await callback(values, formikHelpers);
       setSubmitting(false);
       return result;
     },
