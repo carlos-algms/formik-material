@@ -6,9 +6,9 @@ export type DateFieldProps = Omit<NumberFormatProps, 'format'> & {
   /**
    * @default '##/##/####'
    */
-  format: '##/##/####' | '##.##.####' | '####-##-##';
+  format?: '##/##/####' | '##.##.####' | '####-##-##';
 };
 
-export default function DateField({ format = '##/##/####', ...props }: DateFieldProps) {
-  return <FormattedField type="tel" mask="_" {...props} format={format} />;
+export default function DateField(props: DateFieldProps) {
+  return <FormattedField type="tel" mask="_" format="##/##/####" {...props} />;
 }

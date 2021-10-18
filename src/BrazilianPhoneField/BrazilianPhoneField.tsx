@@ -12,7 +12,7 @@ const LAND = '(##) ####-####';
 
 const getFormat = (value = '') => (value[NINTH_DIGIT_POSITION] === NINTH_DIGIT ? MOBILE : LAND);
 
-const BrazilianPhoneField = (props: NumberFormatProps) => {
+const BrazilianPhoneField = (props: Omit<NumberFormatProps, 'format'>) => {
   const { name = nanoid() } = props;
   const { values, setFieldValue } = useFormikContext();
   const value = get(values, name);
