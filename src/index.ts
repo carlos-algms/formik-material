@@ -2,6 +2,7 @@ export { default as BrazilianPhoneField } from './BrazilianPhoneField';
 export { default as CheckboxField } from './CheckboxField';
 export { default as CpfField } from './CpfField';
 export { default as CurrencyField } from './CurrencyField';
+export { default as DateField } from './DateField';
 export { default as ErrorLabel } from './ErrorLabel';
 export { default as Form } from './Form';
 export type { FormProps, OnSubmitFormCallback } from './Form';
