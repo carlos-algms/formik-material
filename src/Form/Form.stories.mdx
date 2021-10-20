@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, Props } from '@storybook/addon-docs/blocks';
 import Form from './Form';
 import SubmitButton from '../SubmitButton';
 import useFormSubmittedValues from '../useFormSubmittedValues';
@@ -9,12 +9,12 @@ export const initialValues = { name: 'initial name' };
 
 <Meta title="Form Component" component={Form} />
 
-Basic form implementation
+## Basic form implementation
 
-<Preview>
+<Canvas>
   <Story name="basic">
     {() => {
-      const handle = useFormSubmittedValues(action('submited'));
+      const handle = useFormSubmittedValues(action('submitted'));
       return (
         <Form onSubmitForm={handle} initialValues={initialValues}>
           <TextField name="name" label="Name: " />
@@ -25,4 +25,26 @@ Basic form implementation
       );
     }}
   </Story>
-</Preview>
+</Canvas>
+
+## Forms should be able to render child functions
+
+<Canvas>
+  <Story name="render child function">
+    {() => {
+      const handle = useFormSubmittedValues(action('submitted'));
+      return (
+        <Form onSubmitForm={handle} initialValues={initialValues}>
+          {() => (
+            <>
+              <TextField name="name" label="Name: " />
+              <p>
+                <SubmitButton>Submit</SubmitButton>
+              </p>
+            </>
+          )}
+        </Form>
+      );
+    }}
+  </Story>
+</Canvas>

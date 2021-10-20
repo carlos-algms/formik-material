@@ -13,6 +13,27 @@ test('should render a form', () => {
   expect(container).toMatchSnapshot();
 });
 
+test('should render children when a function is passed', () => {
+  const submitMock = jest.fn();
+  const initialValues = { name: 'foo' };
+  let childrenProps: any;
+
+  render(
+    <Form onSubmitForm={submitMock} initialValues={initialValues}>
+      {(props) => {
+        childrenProps = props;
+        return <SubmitButton>Send</SubmitButton>;
+      }}
+    </Form>,
+  );
+
+  const submitButton = screen.getByRole('button');
+  expect(submitButton).toBeInTheDocument();
+
+  expect(childrenProps.values).toEqual(initialValues);
+  expect(childrenProps.isValid).toBeTruthy();
+});
+
 test('should not call onSubmit on fail validation', async () => {
   const validateMock = jest.fn();
   const submitMock = jest.fn();
