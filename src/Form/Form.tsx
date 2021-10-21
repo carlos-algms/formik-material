@@ -1,16 +1,18 @@
 import { Form as FormikForm, Formik, FormikErrors, FormikHelpers, FormikProps } from 'formik';
-import React from 'react';
-import type PropsBase from '../shared/PropsBase';
+import React, { ReactNode } from 'react';
 
 export type OnSubmitFormCallback<T = any, R = any> = {
   (values: T, formikHelpers: FormikHelpers<T>): R | Promise<R>;
 };
 
-export type FormProps<T> = PropsBase<FormikProps<T>> & {
+export type FormProps<T> = {
+  // TODO this could extend from FormikConfig<Values> to make it more extendable
   initialValues?: T;
   onSubmitForm: OnSubmitFormCallback<T>;
   validationSchema?: any | (() => any);
   validate?: (values: T) => FormikErrors<T> | Promise<FormikErrors<T>>;
+  children?: ReactNode | ((props: FormikProps<T>) => ReactNode);
+  className?: string;
 };
 
 /**

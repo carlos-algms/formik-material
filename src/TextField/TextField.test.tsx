@@ -10,7 +10,7 @@ test('should render a MUI field and error label', () => {
   const values = { firstName: 'John' };
 
   const { container } = render(
-    <Form onSubmitForm={submitMock} initialValues={values} initialError>
+    <Form onSubmitForm={submitMock} initialValues={values}>
       <TextField name="firstName" className="wrapper-class" />
     </Form>,
   );
@@ -29,7 +29,7 @@ test('should render error label', async () => {
   const values = { firstName: 'Jane' };
 
   const { container } = render(
-    <Form validate={validateMock} onSubmitForm={submitMock} initialValues={values} initialError>
+    <Form validate={validateMock} onSubmitForm={submitMock} initialValues={values}>
       <TextField name="firstName" className="wrapper-class" />
       <SubmitButton>Send</SubmitButton>
     </Form>,

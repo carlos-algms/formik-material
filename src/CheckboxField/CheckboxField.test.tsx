@@ -13,7 +13,7 @@ test('should render a MUI Checkbox and error label', async () => {
   }));
 
   const { container, getByRole } = render(
-    <Form onSubmitForm={submitMock} initialValues={values} initialError validate={validateMock}>
+    <Form onSubmitForm={submitMock} initialValues={values} validate={validateMock}>
       <CheckboxField name="testField" label="Test Checkbox" className="checkbox-test-class" />
       <SubmitButton>Send</SubmitButton>
     </Form>,
