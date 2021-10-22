@@ -13,6 +13,8 @@ export default function CheckboxField({
   name = nanoid(),
   className,
   color = 'primary',
+  onBlur = identity,
+  onChange = identity,
   ...checkBoxProps
 }: CheckboxFieldProps): JSX.Element {
   return (
@@ -21,6 +23,7 @@ export default function CheckboxField({
         const { value, checked = false } = field;
         const indeterminate = !Array.isArray(value) && value === null;
         const isErrorState = Boolean(error && touched);
+        const { onBlur: formikOnBlur, onChange: formikOnChange, ...formikFieldProps } = field;
 
         return (
           <FormControl error={isErrorState} className={className}>
@@ -31,7 +34,15 @@ export default function CheckboxField({
                   indeterminate={indeterminate}
                   checked={checked}
                   {...checkBoxProps}
-                  {...field}
+                  {...formikFieldProps}
+                  onBlur={(e) => {
+                    formikOnBlur(e);
+                    onBlur(e);
+                  }}
+                  onChange={(e, newValue) => {
+                    formikOnChange(e);
+                    onChange(e, newValue);
+                  }}
                   color={color}
                 />
               }
@@ -43,4 +54,8 @@ export default function CheckboxField({
       }}
     </Field>
   );
+}
+
+function identity(v: any) {
+  return v;
 }
