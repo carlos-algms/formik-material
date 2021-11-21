@@ -1,7 +1,7 @@
 import { useFormikContext } from 'formik';
 import get from 'lodash.get';
 import { nanoid } from 'nanoid/non-secure';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import type { NumberFormatProps, NumberFormatValues } from 'react-number-format';
 import FormattedField from '../FormattedField';
 

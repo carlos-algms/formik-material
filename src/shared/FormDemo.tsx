@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import Form, { FormProps } from '../Form';
 import SubmitButton from '../SubmitButton';
 import useFormSubmittedValues from '../useFormSubmittedValues';

@@ -1,5 +1,5 @@
 import { Form as FormikForm, Formik, FormikErrors, FormikHelpers, FormikProps } from 'formik';
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export type OnSubmitFormCallback<T = any, R = any> = {
   (values: T, formikHelpers: FormikHelpers<T>): R | Promise<R>;

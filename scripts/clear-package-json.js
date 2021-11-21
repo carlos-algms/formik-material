@@ -12,7 +12,7 @@ fs.readFile(packageJsonPath, ENCODING, (readError, content) => {
   }
 
   const data = JSON.parse(content);
-  const { devDependencies, scripts, ...clearedProps } = data;
+  const { devDependencies, scripts, resolutions, ...clearedProps } = data;
   const newContent = JSON.stringify(clearedProps, null, 2);
   const distPackageJsonPath = path.join(__dirname, '..', 'dist', 'package.json');
 

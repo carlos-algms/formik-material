@@ -1,9 +1,9 @@
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import { TextFieldProps } from '@material-ui/core/TextField';
-import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined';
-import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
-import React, { useState } from 'react';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import type { TextFieldProps } from '@mui/material/TextField';
+import { useState } from 'react';
 import TextField from '../TextField';
 
 export default function PasswordField(props: TextFieldProps) {
@@ -18,7 +18,7 @@ export default function PasswordField(props: TextFieldProps) {
         ...InputProps,
         endAdornment: (
           <InputAdornment position="end">
-            <IconButton onClick={() => setIsVisible(!isVisible)}>
+            <IconButton onClick={() => setIsVisible(!isVisible)} size="large">
               {isVisible ? <VisibilityOutlinedIcon /> : <VisibilityOffOutlinedIcon />}
             </IconButton>
           </InputAdornment>

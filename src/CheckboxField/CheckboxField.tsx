@@ -1,11 +1,13 @@
-import { Checkbox, CheckboxProps, FormControl, FormControlLabel } from '@material-ui/core';
+import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import { Field, FieldProps } from 'formik';
 import { nanoid } from 'nanoid/non-secure';
-import React, { ReactNode } from 'react';
+import type { ReactElement } from 'react';
 import ErrorLabel from '../ErrorLabel';
 
 export type CheckboxFieldProps = Omit<CheckboxProps, 'form' | 'checked' | 'defaultChecked'> & {
-  label?: ReactNode;
+  label?: string | ReactElement;
 };
 
 export default function CheckboxField({

@@ -1,4 +1,3 @@
-import React from 'react';
 import type { NumberFormatProps } from 'react-number-format';
 import FormattedField from '../FormattedField';
 
