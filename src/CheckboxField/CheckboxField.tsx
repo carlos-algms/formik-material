@@ -1,4 +1,6 @@
-import { Checkbox, CheckboxProps, FormControl, FormControlLabel } from '@mui/material';
+import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import { Field, FieldProps } from 'formik';
 import { nanoid } from 'nanoid/non-secure';
 import React, { ReactElement } from 'react';
