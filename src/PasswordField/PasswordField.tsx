@@ -1,9 +1,9 @@
-import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
-import { TextFieldProps } from '@mui/material/TextField';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import React, { useState } from 'react';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import type { TextFieldProps } from '@mui/material/TextField';
+import { useState } from 'react';
 import TextField from '../TextField';
 
 export default function PasswordField(props: TextFieldProps) {

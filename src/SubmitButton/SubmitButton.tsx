@@ -1,6 +1,6 @@
 import Button, { ButtonProps } from '@mui/material/Button';
 import { useFormikContext } from 'formik';
-import React, { memo } from 'react';
+import { memo } from 'react';
 import type PropsBase from '../shared/PropsBase';
 
 const SubmitButton = ({ children, className, ...restProps }: PropsBase & ButtonProps) => {

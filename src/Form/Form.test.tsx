@@ -1,5 +1,4 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import React from 'react';
 import SubmitButton from '../SubmitButton';
 import { delay } from '../tests/helpers';
 import Form from './Form';

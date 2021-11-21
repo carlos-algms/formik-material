@@ -3,7 +3,7 @@ import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Field, FieldProps } from 'formik';
 import { nanoid } from 'nanoid/non-secure';
-import React, { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import ErrorLabel from '../ErrorLabel';
 
 export type CheckboxFieldProps = Omit<CheckboxProps, 'form' | 'checked' | 'defaultChecked'> & {

@@ -1,7 +1,6 @@
 import TextField from '@mui/material/TextField';
 import { Field, FieldProps } from 'formik';
 import { nanoid } from 'nanoid/non-secure';
-import React from 'react';
 import NumberFormat, { NumberFormatProps } from 'react-number-format';
 import ErrorLabel from '../ErrorLabel';
 
