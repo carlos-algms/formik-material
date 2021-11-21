@@ -1,4 +1,4 @@
-import MUITextField, { TextFieldProps } from '@material-ui/core/TextField';
+import MUITextField, { TextFieldProps } from '@mui/material/TextField';
 import { Field, FieldProps } from 'formik';
 import { nanoid } from 'nanoid/non-secure';
 import React from 'react';

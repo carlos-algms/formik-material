@@ -1,4 +1,4 @@
-import Button, { ButtonProps } from '@material-ui/core/Button';
+import Button, { ButtonProps } from '@mui/material/Button';
 import { useFormikContext } from 'formik';
 import React, { memo } from 'react';
 import type PropsBase from '../shared/PropsBase';
