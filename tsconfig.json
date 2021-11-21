@@ -28,7 +28,8 @@
     "lib": ["esnext", "dom"],
     "jsx": "react-jsx",
     "forceConsistentCasingInFileNames": true,
-    "importsNotUsedAsValues": "error"
+    "importsNotUsedAsValues": "error",
+    "incremental": true
   },
   "exclude": ["node_modules", "dist", ".vscode", ".idea", ".git", "**/*.test.*"]
 }
