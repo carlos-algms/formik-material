@@ -9,7 +9,7 @@ jobs:
   deploy-storybook:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout
+      - uses: actions/checkout@v3
 
       - id: setup
         uses: ./.github/actions/setup_workspace
