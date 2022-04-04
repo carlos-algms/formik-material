@@ -1,10 +1,10 @@
-import TextField from '@mui/material/TextField';
+import TextField, { TextFieldProps } from '@mui/material/TextField';
 import { Field, FieldProps } from 'formik';
 import { nanoid } from 'nanoid/non-secure';
 import NumberFormat, { NumberFormatProps } from 'react-number-format';
 import ErrorLabel from '../ErrorLabel';
 
-type Props = NumberFormatProps & { fullWidth?: boolean };
+type Props = Omit<NumberFormatProps<TextFieldProps>, 'customInput' | 'error' | 'size' | 'color'>;
 
 const FormattedField = ({
   name = nanoid(),
@@ -28,11 +28,11 @@ const FormattedField = ({
               {...formikFieldProps}
               fullWidth={fullWidth}
               error={isErrorState}
-              onBlur={(e) => {
+              onBlur={(e: any) => {
                 formikOnBlur(e);
                 onBlur(e);
               }}
-              onChange={(e) => {
+              onChange={(e: any) => {
                 formikOnChange(e);
                 onChange(e);
               }}
