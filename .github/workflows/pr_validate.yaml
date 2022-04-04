@@ -1,0 +1,51 @@
+name: Validate Pull Requests
+
+on:
+  pull_request:
+
+jobs:
+  validate:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
+
+      - id: setup
+        uses: ./.github/actions/setup_workspace
+
+      - run: yarn type-check
+
+      - run: yarn test
+
+      - run: yarn build
+
+  build:
+    name: Build the lib
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
+
+      - id: setup
+        uses: ./.github/actions/setup_workspace
+
+      - run: yarn build
+
+  build-storybook:
+    name: Build the storybook
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
+
+      - id: setup
+        uses: ./.github/actions/setup_workspace
+
+      - run: yarn build-storybook
