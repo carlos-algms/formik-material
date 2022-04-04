@@ -13,6 +13,7 @@ exports[`should render a MUI field and error label 1`] = `
       <input
         aria-invalid="false"
         class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        id="mui-1"
         name="firstName"
         type="text"
         value="John"
@@ -22,7 +23,7 @@ exports[`should render a MUI field and error label 1`] = `
         class="MuiOutlinedInput-notchedOutline css-161vxw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="css-nnbavb"
+          class="css-hdw1oc"
         >
           <span
             class="notranslate"
@@ -49,6 +50,7 @@ exports[`should render error label 1`] = `
       <input
         aria-invalid="true"
         class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        id="mui-2"
         name="firstName"
         type="text"
         value="Jane"
@@ -58,7 +60,7 @@ exports[`should render error label 1`] = `
         class="MuiOutlinedInput-notchedOutline css-161vxw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="css-nnbavb"
+          class="css-hdw1oc"
         >
           <span
             class="notranslate"
