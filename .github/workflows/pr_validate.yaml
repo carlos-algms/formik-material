@@ -46,4 +46,4 @@ jobs:
       - id: setup
         uses: ./.github/actions/setup_workspace
 
-      - run: yarn build-storybook --ci --quiet
+      - run: yarn build-storybook --quiet
