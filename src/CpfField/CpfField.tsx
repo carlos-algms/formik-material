@@ -1,8 +1,8 @@
-import type { NumberFormatProps } from 'react-number-format';
 import FormattedField from '../FormattedField';
+import type { FormattedFieldProps } from '../FormattedField/FormattedField';
 
-const CpfField = (props: Omit<NumberFormatProps, 'format'>) => {
-  return <FormattedField type="tel" mask="_" {...props} format="###.###.###-##" />;
+const CpfField = (props: Omit<FormattedFieldProps, 'format' | 'type'>) => {
+  return <FormattedField mask="_" {...props} type="tel" format="###.###.###-##" />;
 };
 
 export default CpfField;

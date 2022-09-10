@@ -4,7 +4,10 @@ import { nanoid } from 'nanoid/non-secure';
 import NumberFormat, { NumberFormatProps } from 'react-number-format';
 import ErrorLabel from '../ErrorLabel';
 
-type Props = Omit<NumberFormatProps<TextFieldProps>, 'customInput' | 'error' | 'size' | 'color'>;
+export type FormattedFieldProps = Omit<
+  NumberFormatProps<TextFieldProps>,
+  'customInput' | 'error' | 'size' | 'color'
+>;
 
 const FormattedField = ({
   name = nanoid(),
@@ -13,7 +16,7 @@ const FormattedField = ({
   onBlur = identity,
   onChange = identity,
   ...fieldProps
-}: Props) => {
+}: FormattedFieldProps) => {
   return (
     <Field name={name}>
       {({ field, meta: { error, touched } }: FieldProps) => {

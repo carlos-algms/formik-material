@@ -1,7 +1,6 @@
-import type { NumberFormatProps } from 'react-number-format';
-import FormattedField from '../FormattedField';
+import FormattedField, { FormattedFieldProps } from '../FormattedField';
 
-export type DateFieldProps = Omit<NumberFormatProps, 'format'> & {
+export type DateFieldProps = Omit<FormattedFieldProps, 'format' | 'type'> & {
   /**
    * @default '##/##/####'
    */
@@ -9,5 +8,5 @@ export type DateFieldProps = Omit<NumberFormatProps, 'format'> & {
 };
 
 export default function DateField(props: DateFieldProps) {
-  return <FormattedField type="tel" mask="_" format="##/##/####" {...props} />;
+  return <FormattedField mask="_" format="##/##/####" {...props} type="tel" />;
 }
