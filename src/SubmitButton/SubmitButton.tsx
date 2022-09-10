@@ -3,8 +3,11 @@ import { useFormikContext } from 'formik';
 import { memo } from 'react';
 import type PropsBase from '../shared/PropsBase';
 
-const SubmitButton = ({ children, className, ...restProps }: PropsBase & ButtonProps) => {
+type SubmitButtonProps = PropsBase & ButtonProps;
+
+const SubmitButton = ({ children, className, disabled, ...restProps }: SubmitButtonProps) => {
   const { isSubmitting, isValidating } = useFormikContext();
+  const isDisabled = disabled || (isSubmitting && !isValidating);
 
   return (
     <div className={className}>
@@ -14,7 +17,7 @@ const SubmitButton = ({ children, className, ...restProps }: PropsBase & ButtonP
         color="primary"
         role="button"
         type="submit"
-        disabled={isSubmitting && !isValidating}
+        disabled={isDisabled}
       >
         {children}
       </Button>

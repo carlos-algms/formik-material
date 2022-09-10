@@ -1,16 +1,18 @@
 import { useFormikContext } from 'formik';
 import { nanoid } from 'nanoid/non-secure';
 import { useCallback } from 'react';
-import type { NumberFormatProps } from 'react-number-format';
-import FormattedField from '../FormattedField';
+import FormattedField, { FormattedFieldProps } from '../FormattedField';
 
-const NumberField = (props: NumberFormatProps) => {
-  const { name = nanoid() } = props;
+export type NumberFieldProps = Omit<FormattedFieldProps, 'type'>;
+
+const NumberField = (props: NumberFieldProps) => {
+  const { name = nanoid(), onValueChange = () => null } = props;
   const { setFieldValue } = useFormikContext();
 
-  const onValueChange = useCallback(
-    ({ floatValue }: any) => {
-      setFieldValue(name, floatValue);
+  const handleOnValueChange = useCallback(
+    (values, sourceInfo) => {
+      setFieldValue(name, values.floatValue);
+      onValueChange(values, sourceInfo);
     },
     [name, setFieldValue],
   );
@@ -22,9 +24,9 @@ const NumberField = (props: NumberFormatProps) => {
       decimalScale={0}
       fixedDecimalScale
       allowNegative={false}
-      type="tel"
       {...props}
-      onValueChange={onValueChange}
+      type="tel"
+      onValueChange={handleOnValueChange}
     />
   );
 };

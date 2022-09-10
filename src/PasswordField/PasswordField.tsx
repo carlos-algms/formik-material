@@ -6,7 +6,7 @@ import type { TextFieldProps } from '@mui/material/TextField';
 import { useState } from 'react';
 import TextField from '../TextField';
 
-export default function PasswordField(props: TextFieldProps) {
+export default function PasswordField(props: Omit<TextFieldProps, 'type'>) {
   const [isVisible, setIsVisible] = useState(false);
   const { InputProps = {} } = props;
 
