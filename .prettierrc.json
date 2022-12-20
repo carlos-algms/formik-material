@@ -8,5 +8,14 @@
   "useTabs": false,
   "trailingComma": "all",
   "jsxBracketSameLine": false,
-  "proseWrap": "never"
+  "proseWrap": "never",
+
+  "overrides": [
+    {
+      "files": ["*.md", "*.mdx"],
+      "options": {
+        "proseWrap": "preserve"
+      }
+    }
+  ]
 }
