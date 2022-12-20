@@ -15,6 +15,8 @@ All the input fields are based on [material-ui fields](https://mui.com/material-
 so all properties and customizations are available.  
 Please, refer to the documentation to check all available properties.
 
+There is also the [Storybook page](https://carlos-algms.github.io/formik-material/) with examples of all of the components.
+
 ### Simple Form example
 
 Rendering a `<Form>` component is required to use any of the fields from this library,
