@@ -1,4 +1,4 @@
-import type { FormikHelpers } from 'formik';
+import type { FormikHelpers, FormikValues } from 'formik';
 import useFormSubmit from './useFormSubmit';
 
 /**
@@ -6,7 +6,9 @@ import useFormSubmit from './useFormSubmit';
  * Sets 'submitting' to false after await for the callback result;
  * @param callback Accepts sync and async functions
  */
-function useFormSubmittedValues<T>(callback: (values: T, formikHelpers: FormikHelpers<T>) => any) {
+function useFormSubmittedValues<T extends FormikValues>(
+  callback: (values: T, formikHelpers: FormikHelpers<T>) => any,
+) {
   const handleSubmit = useFormSubmit<T>(
     async (values, formikHelpers) => {
       const { setSubmitting } = formikHelpers;

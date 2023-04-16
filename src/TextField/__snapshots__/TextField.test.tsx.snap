@@ -8,12 +8,12 @@ exports[`should render a MUI field and error label 1`] = `
     class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-nlu209-MuiFormControl-root-MuiTextField-root"
   >
     <div
-      class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
-        class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-        id="mui-1"
+        class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        id=":r0:"
         name="firstName"
         type="text"
         value="John"
@@ -23,7 +23,7 @@ exports[`should render a MUI field and error label 1`] = `
         class="MuiOutlinedInput-notchedOutline css-161vxw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="css-hdw1oc"
+          class="css-ihdtdm"
         >
           <span
             class="notranslate"
@@ -45,12 +45,12 @@ exports[`should render error label 1`] = `
     class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-nlu209-MuiFormControl-root-MuiTextField-root"
   >
     <div
-      class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-error MuiInputBase-fullWidth MuiInputBase-formControl css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-fullWidth MuiInputBase-formControl css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="true"
-        class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-        id="mui-2"
+        class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        id=":r1:"
         name="firstName"
         type="text"
         value="Jane"
@@ -60,7 +60,7 @@ exports[`should render error label 1`] = `
         class="MuiOutlinedInput-notchedOutline css-161vxw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="css-hdw1oc"
+          class="css-ihdtdm"
         >
           <span
             class="notranslate"
