@@ -5,7 +5,7 @@ exports[`should render a MUI field and error label 1`] = `
   class="wrapper-class"
 >
   <div
-    class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-nlu209-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
   >
     <div
       class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
@@ -20,7 +20,7 @@ exports[`should render a MUI field and error label 1`] = `
       />
       <fieldset
         aria-hidden="true"
-        class="MuiOutlinedInput-notchedOutline css-161vxw-MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
           class="css-ihdtdm"
@@ -42,7 +42,7 @@ exports[`should render error label 1`] = `
   class="wrapper-class"
 >
   <div
-    class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-nlu209-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
   >
     <div
       class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-fullWidth MuiInputBase-formControl css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
@@ -57,7 +57,7 @@ exports[`should render error label 1`] = `
       />
       <fieldset
         aria-hidden="true"
-        class="MuiOutlinedInput-notchedOutline css-161vxw-MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
           class="css-ihdtdm"
