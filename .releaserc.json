@@ -1,6 +1,20 @@
 {
   "plugins": [
-    "@semantic-release/commit-analyzer",
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "angular",
+        "releaseRules": [
+          { "breaking": true, "release": "major" },
+          { "type": "docs", "release": "patch" },
+          { "type": "refactor", "release": "patch" },
+          { "type": "style", "release": "patch" }
+        ],
+        "parserOpts": {
+          "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
+        }
+      }
+    ],
     [
       "@semantic-release/release-notes-generator",
       {
@@ -10,16 +24,16 @@
         },
         "presetConfig": {
           "types": [
-            { "type": "feat", "section": "Features" },
-            { "type": "fix", "section": "Bug Fixes" },
-            { "type": "perf", "section": "Performance Improvements" },
-            { "type": "chore", "section": "Others" },
-            { "type": "docs", "section": "Others" },
-            { "type": "style", "section": "Others" },
-            { "type": "refactor", "section": "Others" },
-            { "type": "build", "section": "Others" },
-            { "type": "ci", "section": "Others" },
-            { "type": "test", "section": "Others" }
+            { "type": "feat", "section": "Features", "hidden": false },
+            { "type": "fix", "section": "Bug Fixes", "hidden": false },
+            { "type": "perf", "section": "Performance Improvements", "hidden": false },
+            { "type": "chore", "section": "Others", "hidden": false },
+            { "type": "docs", "section": "Others", "hidden": false },
+            { "type": "style", "section": "Others", "hidden": false },
+            { "type": "refactor", "section": "Others", "hidden": false },
+            { "type": "build", "section": "Others", "hidden": false },
+            { "type": "ci", "section": "Others", "hidden": false },
+            { "type": "test", "section": "Others", "hidden": false }
           ]
         }
       }
