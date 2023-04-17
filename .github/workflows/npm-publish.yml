@@ -53,7 +53,7 @@ jobs:
 
       - name: Semantic Release
         id: semantic_release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v3
         with: # You can specify specifying version range for the extra plugins if you prefer.
           extra_plugins: |
             @semantic-release/git
