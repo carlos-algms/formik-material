@@ -1,38 +1,36 @@
-import { action } from '@storybook/addon-actions';
-import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
-import SubmitButton from '../SubmitButton';
-import useFormSubmittedValues from '../useFormSubmittedValues';
-import CheckboxField from './CheckboxField';
-import FormDemo from '../shared/FormDemo';
 import Typography from '@mui/material/Typography';
+import { action } from '@storybook/addon-actions';
+import { Meta, StoryObj } from '@storybook/react';
 import * as yup from 'yup';
+import FormDemo from '../shared/FormDemo';
+import CheckboxField from './CheckboxField';
 
-export const initialValues = {
+const initialValues = {
   read: false,
   accept: true,
 };
 
-<Meta title="Checkbox Field" component={CheckboxField} />
+const meta: Meta<typeof CheckboxField> = {
+  title: 'Checkbox Field',
+  component: CheckboxField,
+};
 
-<Typography variant="h4">Checkbox Field</Typography>
+export default meta;
 
-<Canvas>
-  <Story name="basic">
+type Story = StoryObj<typeof CheckboxField>;
+
+export const Basic: Story = {
+  render: () => (
     <FormDemo onSubmit={action('submitted')} initialValues={initialValues}>
       <Typography variant="h5">Basic Example</Typography>
       <CheckboxField name="read" label="Read and accept our terms" />
       <CheckboxField name="accept" label="I accept receiving newsletter" color="secondary" />
     </FormDemo>
-  </Story>
-</Canvas>
+  ),
+};
 
-export const validationSchema = yup.object().shape({
-  read: yup.boolean().required().oneOf([true]),
-  accept: yup.boolean().required(),
-});
-
-<Canvas>
-  <Story name="validation">
+export const Validation: Story = {
+  render: () => (
     <FormDemo
       onSubmit={action('submitted valid')}
       initialValues={initialValues}
@@ -42,9 +40,10 @@ export const validationSchema = yup.object().shape({
       <CheckboxField name="read" label="Read and accept our terms" />
       <CheckboxField name="accept" label="I accept receiving newsletter" color="secondary" />
     </FormDemo>
-  </Story>
-</Canvas>
+  ),
+};
 
-## Props
-
-<ArgsTable of={CheckboxField} />
+const validationSchema = yup.object().shape({
+  read: yup.boolean().required().oneOf([true]),
+  accept: yup.boolean().required(),
+});

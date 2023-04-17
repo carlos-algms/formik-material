@@ -1,11 +1,18 @@
-import { Form as FormikForm, Formik, FormikErrors, FormikHelpers, FormikProps } from 'formik';
+import {
+  Formik,
+  FormikErrors,
+  Form as FormikForm,
+  FormikHelpers,
+  FormikProps,
+  FormikValues,
+} from 'formik';
 import type { ReactNode } from 'react';
 
 export type OnSubmitFormCallback<T = any, R = any> = {
   (values: T, formikHelpers: FormikHelpers<T>): R | Promise<R>;
 };
 
-export type FormProps<T> = {
+export type FormProps<T extends FormikValues> = {
   // TODO this could extend from FormikConfig<Values> to make it more extendable
   initialValues?: T;
   onSubmitForm: OnSubmitFormCallback<T>;
@@ -18,7 +25,7 @@ export type FormProps<T> = {
 /**
  * Form Component
  */
-export default function Form<T>({
+export default function Form<T extends FormikValues>({
   children,
   initialValues,
   onSubmitForm,

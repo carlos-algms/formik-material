@@ -1,54 +1,46 @@
 import TextField, { TextFieldProps } from '@mui/material/TextField';
-import { Field, FieldProps } from 'formik';
+import { useField } from 'formik';
 import { nanoid } from 'nanoid/non-secure';
-import NumberFormat, { NumberFormatProps } from 'react-number-format';
+import { PatternFormat, PatternFormatProps } from 'react-number-format';
 import ErrorLabel from '../ErrorLabel';
 
 export type FormattedFieldProps = Omit<
-  NumberFormatProps<TextFieldProps>,
-  'customInput' | 'error' | 'size' | 'color'
+  PatternFormatProps<TextFieldProps>,
+  'customInput' | 'error' | 'size' | 'color' | 'value'
 >;
 
-const FormattedField = ({
+export default function FormattedField({
   name = nanoid(),
   className,
   fullWidth = true,
   onBlur = identity,
   onChange = identity,
-  ...fieldProps
-}: FormattedFieldProps) => {
+  ...props
+}: FormattedFieldProps) {
+  const [field, { error, touched }] = useField(name);
+  const isErrorState = Boolean(error && touched);
+
   return (
-    <Field name={name}>
-      {({ field, meta: { error, touched } }: FieldProps) => {
-        const isErrorState = Boolean(error && touched);
-        const { onBlur: formikOnBlur, onChange: formikOnChange, ...formikFieldProps } = field;
-
-        return (
-          <div className={className}>
-            <NumberFormat
-              customInput={TextField}
-              {...fieldProps}
-              {...formikFieldProps}
-              fullWidth={fullWidth}
-              error={isErrorState}
-              onBlur={(e: any) => {
-                formikOnBlur(e);
-                onBlur(e);
-              }}
-              onChange={(e: any) => {
-                formikOnChange(e);
-                onChange(e);
-              }}
-            />
-            {isErrorState && <ErrorLabel error={error} />}
-          </div>
-        );
-      }}
-    </Field>
+    <div className={className}>
+      <PatternFormat
+        customInput={TextField}
+        {...field}
+        {...props}
+        fullWidth={fullWidth}
+        error={isErrorState}
+        onBlur={(e: any) => {
+          field.onBlur(e);
+          onBlur(e);
+        }}
+        onChange={(e: any) => {
+          field.onChange(e);
+          onChange(e);
+        }}
+      />
+      {isErrorState && <ErrorLabel error={error} />}
+    </div>
   );
-};
-
-export default FormattedField;
+}
 
 function identity(v: any) {
   return v;
