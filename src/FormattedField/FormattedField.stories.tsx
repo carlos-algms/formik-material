@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import FormDemo from '../shared/FormDemo';
 import FormattedField from './FormattedField';
 
-const initialValues = { age: 1234 };
+const initialValues = { birthDate: '31/12/2023' };
 
 const meta: Meta<typeof FormattedField> = {
   title: 'Formatted Field',
@@ -31,7 +31,7 @@ export const Basic: Story = {
           react-number-format
         </a>
       </Typography>
-      <FormattedField name="age" label="My Value:" />
+      <FormattedField name="birthDate" label="Birthdate:" format="##/##/####" mask="_" />
     </FormDemo>
   ),
 };
