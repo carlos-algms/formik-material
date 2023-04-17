@@ -24,11 +24,11 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "removeComments": false,
-    "typeRoots": ["node_modules/@types"],
     "lib": ["esnext", "dom", "DOM.Iterable"],
     "jsx": "react-jsx",
     "forceConsistentCasingInFileNames": true,
     "incremental": true
   },
-  "exclude": ["node_modules", "dist", ".vscode", ".idea", ".git", "**/*.test.*"]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "exclude": ["node_modules", "dist", ".vscode", ".idea", ".git"]
 }

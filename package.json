@@ -8,7 +8,7 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "cross-env NODE_ENV=production storybook build --output-dir build/storybook",
-    "build": "rimraf dist && cross-env NODE_ENV=production tsc && cross-env NODE_ENV=production tsc --module commonjs --outDir dist/node",
+    "build": "rimraf dist && cross-env NODE_ENV=production tsc -p ./tsconfig.prod.json && cross-env NODE_ENV=production tsc -p ./tsconfig.prod.json --module commonjs --outDir dist/node",
     "postbuild": "node ./scripts/clear-package-json.js && cp LICENSE README.md ./dist/",
     "test": "rimraf coverage && cross-env NODE_ENV=test jest",
     "test-with-coverage": "yarn test --collect-coverage",
@@ -48,6 +48,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.5.0",
     "@types/lodash.get": "^4.4.7",
     "@types/react": "^18.0.35",
