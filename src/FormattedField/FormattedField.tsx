@@ -1,6 +1,5 @@
 import TextField, { TextFieldProps } from '@mui/material/TextField';
 import { useField } from 'formik';
-import { nanoid } from 'nanoid/non-secure';
 import { PatternFormat, PatternFormatProps } from 'react-number-format';
 import ErrorLabel from '../ErrorLabel';
 
@@ -9,8 +8,10 @@ export type FormattedFieldProps = Omit<
   'customInput' | 'error' | 'size' | 'color' | 'value'
 >;
 
+let idCount = 0;
+
 export default function FormattedField({
-  name = nanoid(),
+  name = `FormattedField-${idCount++}`,
   className,
   fullWidth = true,
   onBlur = identity,

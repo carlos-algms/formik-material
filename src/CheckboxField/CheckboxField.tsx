@@ -2,7 +2,6 @@ import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Field, FieldProps } from 'formik';
-import { nanoid } from 'nanoid/non-secure';
 import type { ReactElement } from 'react';
 import ErrorLabel from '../ErrorLabel';
 
@@ -10,9 +9,11 @@ export type CheckboxFieldProps = Omit<CheckboxProps, 'form' | 'checked' | 'defau
   label?: string | ReactElement;
 };
 
+let idCount = 0;
+
 export default function CheckboxField({
   label = '',
-  name = nanoid(),
+  name = `CheckboxField-${idCount++}`,
   className,
   color = 'primary',
   onBlur = identity,

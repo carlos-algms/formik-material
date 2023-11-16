@@ -1,12 +1,13 @@
 import MUITextField, { TextFieldProps } from '@mui/material/TextField';
 import { Field, FieldProps } from 'formik';
-import { nanoid } from 'nanoid/non-secure';
 import ErrorLabel from '../ErrorLabel';
 
 const identity = (a: any) => a;
 
+let idCount = 0;
+
 const TextField = ({
-  name = nanoid(),
+  name = `TextField-${idCount++}`,
   className,
   fullWidth = true,
   onBlur = identity,
