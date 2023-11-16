@@ -1,9 +1,9 @@
 .PHONY: pr_validate master
 
 pr_validate:
-	yarn test-with-coverage
-	yarn build
+	pnpm test-with-coverage
+	pnpm build
 
 master:
-	yarn test-with-coverage
-	yarn build
+	pnpm test-with-coverage
+	pnpm build

@@ -1,4 +1,4 @@
-import { act, renderHook } from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react';
 import useFormSubmittedValues from './useFormSubmittedValues';
 
 test('should call with form data and set "submitting" to false', async () => {

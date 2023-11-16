@@ -4,7 +4,7 @@ node_js:
 
 cache:
   directories:
-    - "node_modules"
+    - 'node_modules'
 
 notifications:
   email: false
@@ -14,7 +14,7 @@ branches:
     - master
 
 install:
-  - yarn --frozen-lockfile
+  - pnpm install
 
 script:
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then make pr_validate; fi'

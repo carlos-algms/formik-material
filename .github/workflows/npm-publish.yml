@@ -19,11 +19,11 @@ jobs:
       - id: setup
         uses: ./.github/actions/setup_workspace
 
-      - run: yarn type-check
+      - run: pnpm type-check
 
-      - run: yarn test
+      - run: pnpm test
 
-      - run: yarn build
+      - run: pnpm build
 
       - uses: actions/upload-artifact@v3
         with:
@@ -53,7 +53,7 @@ jobs:
 
       - name: Semantic Release
         id: semantic_release
-        uses: cycjimmy/semantic-release-action@v3
+        uses: cycjimmy/semantic-release-action@v4
         with: # You can specify specifying version range for the extra plugins if you prefer.
           extra_plugins: |
             @semantic-release/git
@@ -64,7 +64,7 @@ jobs:
 
       - id: publish
         if: steps.semantic_release.outputs.new_release_published == 'true'
-        uses: JS-DevTools/npm-publish@v1
+        uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./dist/package.json

@@ -15,7 +15,7 @@
     "alwaysStrict": true,
     "strict": true,
     "downlevelIteration": true,
-    "importHelpers": true,
+    "importHelpers": false,
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,

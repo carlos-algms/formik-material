@@ -1,6 +1,5 @@
 import { useFormikContext } from 'formik';
 import get from 'lodash.get';
-import { nanoid } from 'nanoid/non-secure';
 import { useCallback, useState } from 'react';
 import type { NumberFormatValues, SourceInfo } from 'react-number-format';
 import FormattedField, { type FormattedFieldProps } from '../FormattedField';
@@ -12,8 +11,10 @@ const LAND = '(##) ####-####';
 
 const getFormat = (value = '') => (value[NINTH_DIGIT_POSITION] === NINTH_DIGIT ? MOBILE : LAND);
 
+let idCount = 0;
+
 const BrazilianPhoneField = (props: Omit<FormattedFieldProps, 'format' | 'type' | 'mask'>) => {
-  const { name = nanoid(), onValueChange = () => null } = props;
+  const { name = `BrazilianPhoneField-${idCount++}`, onValueChange = () => null } = props;
   const { values, setFieldValue } = useFormikContext();
   const value = get(values, name);
 

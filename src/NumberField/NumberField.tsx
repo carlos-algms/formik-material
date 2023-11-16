@@ -1,6 +1,5 @@
 import TextField, { TextFieldProps } from '@mui/material/TextField';
 import { useField } from 'formik';
-import { nanoid } from 'nanoid/non-secure';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
 import ErrorLabel from '../ErrorLabel';
 
@@ -9,8 +8,10 @@ export type NumberFieldProps = Omit<
   'customInput' | 'error' | 'size' | 'color' | 'type' | 'value'
 >;
 
+let idCount = 0;
+
 export default function NumberField({
-  name = nanoid(),
+  name = `NumberField-${idCount++}`,
   className,
   fullWidth = true,
   onBlur = identity,
