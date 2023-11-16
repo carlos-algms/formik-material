@@ -54,11 +54,11 @@ jobs:
       - name: Semantic Release
         id: semantic_release
         uses: cycjimmy/semantic-release-action@v3
-        with: # You can specify specifying version range for the extra plugins if you prefer.
-          extra_plugins: |
-            @semantic-release/git
-            @semantic-release/github
-            conventional-changelog-conventionalcommits
+        # with: # You can specify specifying version range for the extra plugins if you prefer.
+        #   extra_plugins: |
+        #     @semantic-release/git
+        #     @semantic-release/github
+        #     conventional-changelog-conventionalcommits
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
