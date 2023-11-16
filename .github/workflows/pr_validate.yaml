@@ -16,9 +16,9 @@ jobs:
       - id: setup
         uses: ./.github/actions/setup_workspace
 
-      - run: yarn type-check
+      - run: pnpm type-check
 
-      - run: yarn test
+      - run: pnpm test
 
   build:
     name: Build the lib
@@ -32,7 +32,7 @@ jobs:
       - id: setup
         uses: ./.github/actions/setup_workspace
 
-      - run: yarn build
+      - run: pnpm build
 
   build-storybook:
     name: Build the storybook
@@ -46,4 +46,4 @@ jobs:
       - id: setup
         uses: ./.github/actions/setup_workspace
 
-      - run: yarn build-storybook --quiet
+      - run: pnpm build-storybook --quiet
