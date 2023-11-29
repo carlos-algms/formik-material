@@ -48,7 +48,7 @@ jobs:
           name: dist
           path: dist
 
-      - run: pnpm setup
+      - run: SHELL=`echo $$0` pnpm setup
 
       - run: pnpm add -g semantic-release @semantic-release/github conventional-changelog-conventionalcommits
 
