@@ -50,7 +50,7 @@ jobs:
 
       - run: SHELL=bash pnpm setup
 
-      - run: pnpm add -g semantic-release @semantic-release/github conventional-changelog-conventionalcommits
+      - run: pnpm add -g semantic-release @semantic-release/git conventional-changelog-conventionalcommits
 
       - run: pnpm exec semantic-release
         env:
