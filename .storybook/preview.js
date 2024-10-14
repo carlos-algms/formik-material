@@ -8,3 +8,4 @@ const withMui = (Story) => (
 );
 
 export const decorators = [withMui];
+export const tags = ['autodocs'];
